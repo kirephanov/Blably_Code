@@ -1,7 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 class Course(models.Model):
     '''Класс отображает курсы для обучающихся'''
@@ -67,12 +64,9 @@ class Homework(models.Model):
     homework_verified = models.BooleanField(blank=True, verbose_name='Проверено')
     homework_comment = models.CharField(max_length=250, verbose_name='Комментарий к заданию') 
 
-
     def __str__(self):
         return self.homework_title
 
     class Meta:
         verbose_name = 'Домашнее задание'
         verbose_name_plural = 'Домашние задания'
-
-
