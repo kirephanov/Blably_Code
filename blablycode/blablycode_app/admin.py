@@ -1,5 +1,17 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+from django import forms
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from .models import *
+
+class LessonAdminForm(forms.ModelForm):
+    lesson_exercise = forms.CharField(widget=CKEditorUploadingWidget())
+    lesson_homework = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Lesson
+        fields = '__all__'
+
 
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('id', 'сourse_title', 'course_category', 'course_created_at', 'course_icon')
@@ -9,6 +21,7 @@ class CourseAdmin(admin.ModelAdmin):
 
 
 class LessonAdmin(admin.ModelAdmin):
+    form = LessonAdminForm
     list_display = ('id', 'lesson_title', 'lesson_сourse', 'lesson_created_at', 'lesson_video')
     list_display_links = ('id', 'lesson_title', 'lesson_сourse', 'lesson_created_at', 'lesson_video')
     search_fields = ('lesson_title',)
