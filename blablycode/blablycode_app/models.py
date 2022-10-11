@@ -79,3 +79,20 @@ class Homework(models.Model):
     class Meta:
         verbose_name = 'Домашнее задание'
         verbose_name_plural = 'Домашние задания'
+
+
+class Article(models.Model):
+    '''Класс отображает статьи для блога'''
+    article_title = models.CharField(max_length=150, verbose_name='Заголовок')
+    article_content = models.TextField(max_length=2500, verbose_name='Содержание')
+    article_photo = models.ImageField(upload_to='photos/%Y/%m/%d/', verbose_name='Фото', blank=True)
+    article_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
+    article_created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
+
+    def __str__(self):
+        return self.article_title
+
+    class Meta:
+        verbose_name = 'Статья'
+        verbose_name_plural = 'Статьи'
+        ordering = ['-article_created_at']

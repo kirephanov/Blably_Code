@@ -13,6 +13,14 @@ class LessonAdminForm(forms.ModelForm):
         fields = '__all__'
 
 
+class ArticleAdminForm(forms.ModelForm):
+    article_content = forms.CharField(widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Lesson
+        fields = '__all__'
+
+
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('id', 'сourse_title', 'course_category', 'course_age', 'course_created_at', 'course_icon')
     list_display_links = ('id', 'сourse_title', 'course_category', 'course_age', 'course_created_at', 'course_icon')
@@ -47,11 +55,20 @@ class HomeworkAdmin(admin.ModelAdmin):
     list_filter = ('homework_course', 'homework_lesson')
 
 
+class ArticleAdmin(admin.ModelAdmin):
+    form = ArticleAdminForm
+    list_display = ('id', 'article_title', 'article_category', 'article_created_at', 'article_photo')
+    list_display_links = ('id', 'article_title', 'article_category', 'article_created_at', 'article_photo')
+    search_fields = ('article_title',)
+    list_filter = ('article_category',)
+
+
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Age, AgeAdmin)
 admin.site.register(Homework, HomeworkAdmin)
+admin.site.register(Article, ArticleAdmin)
 
 
 admin.site.site_title = 'Управление Blably Code'
