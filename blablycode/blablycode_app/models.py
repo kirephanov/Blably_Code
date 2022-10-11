@@ -7,6 +7,7 @@ class Course(models.Model):
     course_description = models.TextField(max_length=250, verbose_name='Описание курса')
     course_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
     course_created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    course_age = models.ForeignKey('Age', on_delete=models.PROTECT, null=True, verbose_name='Возраст')
 
     def __str__(self):
         return self.сourse_title
@@ -48,6 +49,18 @@ class Category(models.Model):
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
         ordering = ['category_title']
+
+class Age(models.Model):
+    '''Класс отображает возрастное ограничение для курсов'''
+    age_title = models.CharField(max_length=50, verbose_name='Возраст')
+
+    def __str__(self):
+        return self.age_title
+
+    class Meta:
+        verbose_name = 'Возраст'
+        verbose_name_plural = 'Возраст'
+        ordering = ['age_title']
 
 
 class Homework(models.Model):

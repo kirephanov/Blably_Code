@@ -14,8 +14,8 @@ class LessonAdminForm(forms.ModelForm):
 
 
 class CourseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'сourse_title', 'course_category', 'course_created_at', 'course_icon')
-    list_display_links = ('id', 'сourse_title', 'course_category', 'course_created_at', 'course_icon')
+    list_display = ('id', 'сourse_title', 'course_category', 'course_age', 'course_created_at', 'course_icon')
+    list_display_links = ('id', 'сourse_title', 'course_category', 'course_age', 'course_created_at', 'course_icon')
     search_fields = ('сourse_title',)
     list_filter = ('course_category',)
 
@@ -34,6 +34,12 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('category_title',)
 
 
+class AgeAdmin(admin.ModelAdmin):
+    list_display = ('id', 'age_title')
+    list_display_links = ('id', 'age_title')
+    search_fields = ('age_title',)
+
+
 class HomeworkAdmin(admin.ModelAdmin):
     list_display = ('id', 'homework_title', 'homework_course', 'homework_lesson', 'homework_author', 'homework_file', 'homework_verified')
     list_display_links = ('id', 'homework_title', 'homework_course', 'homework_lesson', 'homework_author', 'homework_file')
@@ -44,6 +50,7 @@ class HomeworkAdmin(admin.ModelAdmin):
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Age, AgeAdmin)
 admin.site.register(Homework, HomeworkAdmin)
 
 
