@@ -141,8 +141,22 @@ class InterviewExercise(models.Model):
     interview_solve = models.TextField(max_length=500, verbose_name='Решение задачи')
 
     def __str__(self):
-        return self.exercise_title
+        return self.interview_title
 
     class Meta:
-        verbose_name = 'Задача для практики'
-        verbose_name_plural = 'Задачи для практики'
+        verbose_name = 'Задача для собеседования'
+        verbose_name_plural = 'Задачи для собеседований'
+
+
+class TechTask(models.Model):
+    '''Класс отображает задачи с ТЗ из модуля практики'''
+    tech_task_title = models.CharField(max_length=150, verbose_name='Название ТЗ')
+    tech_task_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория') 
+    tech_task_content = models.TextField(max_length=1500, verbose_name='Содержание ТЗ')
+
+    def __str__(self):
+        return self.tech_task_title
+
+    class Meta:
+        verbose_name = 'Техническое задание'
+        verbose_name_plural = 'Технические задания'
