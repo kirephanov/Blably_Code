@@ -117,3 +117,17 @@ class Feedback(models.Model):
         verbose_name = 'Обратная связь'
         verbose_name_plural = 'Обратная связь'
         ordering = ['-feedback_created_at']
+
+
+class Exercise(models.Model):
+    '''Класс отображает задачи для модуля практики'''
+    exercise_title = models.CharField(max_length=150, verbose_name='Название задачи')
+    course_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
+    exercise_content = models.TextField(max_length=500, verbose_name='Условие задачи')
+
+    def __str__(self):
+        return self.exercise_title
+
+    class Meta:
+        verbose_name = 'Задача для практики'
+        verbose_name_plural = 'Задачи для практики'
