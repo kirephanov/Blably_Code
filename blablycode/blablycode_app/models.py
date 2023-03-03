@@ -122,8 +122,23 @@ class Feedback(models.Model):
 class Exercise(models.Model):
     '''Класс отображает задачи для модуля практики'''
     exercise_title = models.CharField(max_length=150, verbose_name='Название задачи')
-    course_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
+    exercise_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория')
     exercise_content = models.TextField(max_length=500, verbose_name='Условие задачи')
+
+    def __str__(self):
+        return self.exercise_title
+
+    class Meta:
+        verbose_name = 'Задача для практики'
+        verbose_name_plural = 'Задачи для практики'
+
+
+class InterviewExercise(models.Model):
+    '''Класс отображает задачи для собеседования'''
+    interview_title = models.CharField(max_length=150, verbose_name='Название задачи')
+    interview_category = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name='Категория') 
+    interview_content = models.TextField(max_length=500, verbose_name='Условие задачи')
+    interview_solve = models.TextField(max_length=500, verbose_name='Решение задачи')
 
     def __str__(self):
         return self.exercise_title
