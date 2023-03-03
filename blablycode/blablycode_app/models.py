@@ -1,9 +1,5 @@
 from django.db import models
 
-# Обратная связь
-# Задачи
-# Собеседование
-# ТЗ
 
 class Course(models.Model):
     '''Класс отображает курсы для обучающихся'''
