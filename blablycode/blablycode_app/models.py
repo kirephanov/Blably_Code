@@ -1,5 +1,10 @@
 from django.db import models
 
+# Обратная связь
+# Задачи
+# Собеседование
+# ТЗ
+
 class Course(models.Model):
     '''Класс отображает курсы для обучающихся'''
     сourse_title = models.CharField(max_length=150, verbose_name='Название курса')
@@ -20,7 +25,7 @@ class Course(models.Model):
 
 class Lesson(models.Model):
     '''Класс отображает видеоуроки для обучающихся'''
-    lesson_title = models.CharField(max_length=150, verbose_name='Название курса')
+    lesson_title = models.CharField(max_length=150, verbose_name='Название урока')
     lesson_сourse = models.ForeignKey('Course', on_delete=models.PROTECT, null=True, verbose_name='Курс')
     lesson_video = models.CharField(max_length=150, verbose_name='Видео') # Ссылка на видео
     lesson_description = models.TextField(max_length=150, verbose_name='Описание урока')
@@ -96,3 +101,19 @@ class Article(models.Model):
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
         ordering = ['-article_created_at']
+
+
+class Feedback(models.Model):
+    '''Класс отображает форму обратной связи'''
+    feedback_name = models.CharField(max_length=150, verbose_name='Имя пользователя')
+    feedback_email = models.CharField(max_length=150, verbose_name='Почта')
+    feedback_message = models.TextField(max_length=500, verbose_name='Сообщение')
+    feedback_created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
+
+    def __str__(self):
+        return self.feedback_message
+
+    class Meta:
+        verbose_name = 'Обратная связь'
+        verbose_name_plural = 'Обратная связь'
+        ordering = ['-feedback_created_at']
