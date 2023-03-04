@@ -17,3 +17,14 @@ class Index(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+
+def coursesPage(request):
+    '''Страница курсов'''
+    courses = Course.objects.all()
+    categories = Category.objects.all()
+    age = Age.objects.all()
+
+    context = {'courses': courses, 'categories': categories, 'age': age}
+
+    return render(request=request, template_name='blablycode_app/courses.html', context=context)

@@ -37,7 +37,7 @@
                                     <a href="{% url 'home' %}" class="nav__menu__link">О школе</a>
                                 </li>
                                 <li class="nav__menu__links__item">
-                                    <a href="courses.html" class="nav__menu__link">Курсы</a>
+                                    <a href="{% url 'courses' %}" class="nav__menu__link">Курсы</a>
                                 </li>
                                 <li class="nav__menu__links__item">
                                     <div class="dropdown">
@@ -75,7 +75,7 @@
                                     <a href="login.html">Войти</a>
                                     {% endif %}
                                     <a href="{% url 'home' %}">О&nbspшколе</a>
-                                    <a href="courses.html">Курсы</a>
+                                    <a href="{% url 'courses' %}">Курсы</a>
                                     <a href="practice_menu.html">Практика</a>
                                     <a href="articles.html">Статьи</a>
                                 </div>
