@@ -1,0 +1,1643 @@
+:root {
+    --dark: #181818;
+    --blue: #6E65EB;
+    --orange: #FFBF69;
+    --grey: #97A8C1;
+}
+
+html {
+    background-color: var(--dark);
+}
+body {
+    font-family: 'Rubik', sans-serif;
+    color: var(--dark);
+    background-color: #fff;
+}
+.wrapper {
+    max-width: 1180px;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin: 0 auto;
+}
+.page-title {
+    font-size: 128px;
+    font-weight: 500;
+    margin-top: 90px;
+    margin-bottom: 55px;
+}
+
+/* 
+* Виртуальный помощник
+*/
+.janna-bot {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    z-index: 1;
+}
+.janna-bot__img {
+    width: 100px;
+    border-radius: 16px;
+    box-shadow: none;
+    transition: .3s ease box-shadow;
+}
+/*.janna-bot__img:hover {
+    box-shadow: 0px 0px 32px rgba(151, 58, 168, 1);
+}*/
+
+/* 
+* Навигация
+*/
+.header {
+    background-color: var(--blue);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav__menu__links {
+    display: flex;
+    align-items: center;
+}
+.nav__menu__links__item {
+    list-style-type: none;
+    margin-right: 40px;
+}
+.nav__menu__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.nav__user__login-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 32px;
+    background-color: var(--orange);
+    border-radius: 100px;
+}
+.nav__user__profile {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+.dropdown .dropbtn {
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #DADBED;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 16px;
+}
+.dropdown-content a {
+    float: none;
+    color: var(--dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: #C8CAEA;
+    border-radius: 16px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* 
+* Мобильное меню
+*/
+.mobile-menu {
+    display: none;
+}
+.overlay {   
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgb(24, 24, 24);
+    background-color: rgba(24, 24, 24, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+    position: relative;
+    top: 10%;
+    width: 100%;
+    text-align: start;
+    margin-top: 30px;
+}
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 90px;
+    color: #fff;
+    display: block;
+    transition: 0.5s;
+    text-transform: uppercase;
+    padding-left: 40px;
+}
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+.open-btn {
+    cursor: pointer;
+}
+
+/* 
+* Футер
+*/
+.footer {
+    background-color: var(--dark);
+    color: #fff;
+    padding-top: 90px;
+    padding-bottom: 100px;
+}
+.watermark {
+    font-size: 64px;
+    font-weight: 500;
+    text-align: end;
+    margin-top: 0;
+    margin-bottom: 90px;
+}
+.watermark__link {
+    color: var(--orange);
+}
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__content__description {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0;
+}
+.footer__content__socials {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+
+/******************************** Главная страница ********************************/
+/*
+* Баннер
+*/
+.bunner {
+  background-color: var(--blue);
+  border-radius: 0px 0px 64px 64px;
+  padding-top: 45px;
+  padding-bottom: 90px;  
+}
+.bunner__title {
+    color: #fff;
+    text-align: end;
+    font-size: 128px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 90px;
+}
+.bunner__title > span {
+    color: var(--orange);
+}
+.bunner-container {
+    width: 100%;
+    text-align: center;
+}
+.bunner__description {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    max-width: 635px;
+    margin: 0 auto;
+}
+.bunner__btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 500;
+    background-color: var(--orange);
+    border-radius: 100px;
+    padding: 25px 170px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 90px;
+    margin-bottom: 0;
+}
+
+/* 
+* Блок 2
+*/
+.block2 {
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+.block2-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 100px;
+}
+.block2__title {
+    font-size: 100px;
+    font-weight: 500;
+    max-width: 560px;
+    margin: 0;
+}
+.block2__cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.block2__card {
+    color: #fff;
+    background-color: var(--dark);
+    padding: 25px;
+    max-width: 305px;
+    box-sizing: border-box;
+    border-radius: 32px;
+}
+.block2__card__title {
+    font-size: 27px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.block2__card__description {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+/*
+* Блок 3
+*/
+.block3 {
+    background-color: var(--blue);
+    border-radius: 64px 64px 0px 0px;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+.block3-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 90px;
+}
+.block3__image {
+    align-self: flex-end;
+}
+.block3__title {
+    color: #fff;
+    font-size: 100px;
+    font-weight: 500;
+    max-width: 490px;
+    margin-top: 0;
+    margin-bottom: 90px;
+}
+.block3__description {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 38px;
+    margin: 0;
+}
+.block3__form {
+    margin: 0;
+    text-align: center;
+}
+.block3__form__item {
+    margin-bottom: 30px;
+}
+.block3__form-input {
+    max-width: 880px;
+    width: 100%;
+    color: var(--dark);
+    font-size: 32px;
+    font-weight: 500;
+    padding: 18px 40px;
+    border: 2px solid var(--grey);
+    border-radius: 100px;
+}
+.block3__form-input::-webkit-input-placeholder {
+    color: var(--grey);
+}
+.block3__form-input::-moz-placeholder {
+    color: var(--grey);
+}
+.block3__form-textarea {
+    max-width: 880px;
+    width: 100%;
+    color: var(--dark);
+    font-size: 32px;
+    font-weight: 500;
+    padding: 18px 40px;
+    border: 2px solid var(--grey);
+    border-radius: 100px;
+}
+.block3__form-textarea::-webkit-input-placeholder {
+    color: var(--grey);
+}
+.block3__form-textarea::-moz-placeholder {
+    color: var(--grey);
+}
+.form-error__message {
+    color: #EB5656;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.block3__form-btn {
+    margin-top: 55px;
+    margin-bottom: 0;
+}
+.block3__btn-send {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    background-color: var(--orange);
+    padding: 25px 140px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/******************* Курсы **********************/
+
+/* 
+* Фильрация
+*/
+.filter-block {
+    margin-bottom: 90px;
+}
+.filter-top {
+    margin-bottom: 20px;
+}
+.filter__title {
+    color: var(--grey);
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.filter__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.filter__link {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid var(--blue);
+    border-radius: 100px;
+    padding: 12px 32px;
+    display: inline-block;
+}
+
+/* 
+* Каталог курсов
+*/
+.course-catalog-wrapper {
+    max-width: 900px;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin: 0 auto;
+}
+.card-link {
+    color: var(--dark);
+    text-decoration: none;
+}
+.course-card {
+    border-radius: 32px;
+    padding: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    max-width: 850px;
+    box-sizing: border-box;
+    margin-bottom: 55px;
+}
+.course-card-container {
+    display: flex;
+    align-items: center;
+}
+.course-card__photo {
+    border-radius: 32px;
+    margin-right: 20px;
+    width: 186px;
+    height: 186px;
+}
+.course-card__photo__img {
+    border-radius: 32px;
+    width: 186px;
+    height: 186px;
+}
+.course-card__title {
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0;
+}
+.course-card__categories {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.course-card__category {
+    color: var(--grey);
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+.course-card__description {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/******************* Регистрация / Авторизация **********************/
+.register {
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+.authorization {
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+.authorization-card {
+   background-color: #fff;
+   border-radius: 32px;
+   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+   padding: 20px 120px;
+   max-width: 735px;
+   box-sizing: border-box;
+   margin: 0 auto;
+}
+.authorization__title {
+   font-size: 64px;
+   font-weight: 500;
+   margin-top: 0;
+   margin-bottom: 55px;
+   text-align: center;
+}
+.authorization__form {
+   margin: 0 auto;
+}
+.authorization__form-label {
+   display: block;
+   font-size: 36px;
+   margin-bottom: 5px;
+}
+.authorization__form-input {
+    display: block;
+    font-size: 18px;
+    padding: 8px 20px;
+    width: 100%;
+    border: 1px solid var(--dark);
+    border-radius: 100px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+}
+.authorization-btn {
+   color: #fff;
+   font-size: 24px;
+   font-weight: 500;
+   background-color: var(--orange);
+   border: none;
+   border-radius: 100px;
+   text-align: center;
+   width: 100%;
+   padding: 18px 30px;
+   margin-top: 40px;
+   box-sizing: border-box;
+   cursor: pointer;
+}
+.authorization__form-description {
+   font-size: 18px;
+   margin-top: 80px;
+   margin-bottom: 0;
+   text-align: center;
+}
+.authorization__form-description .authorization__form-description-link {
+   color: var(--blue);
+}
+
+
+/******************* Компилятор **********************/
+.compiler-container {
+    margin-bottom: 55px;
+}
+/* 
+* Редактор кода
+*/
+.compile-btn {
+    display: flex;
+    justify-content: center;
+}
+.run-btn {
+    color: #fff;
+    font-size: 24px;
+    background-color: var(--orange);
+    border: none;
+    margin-bottom: 40px;
+    border-radius: 32px;
+    padding: 18px 25px;
+    width: 100%;
+    max-width: 500px;
+    cursor: pointer;
+    transition: 0.2s ease background-color;
+}
+.code {
+    width: 100%;
+    float:left;
+    min-height:300px;
+    overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 40px; 
+}
+
+/*
+* Консоль
+*/
+.console__title {
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.console-block {
+    width: 100%;
+    min-height: 150px;
+    background-color: #292929;
+    border-radius: 16px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.output {
+    font-family: 'Space Mono', monospace;
+    color: #fff;
+    margin: 0;
+    overflow-y:hidden;
+    overflow-x: auto;
+}
+.compiler-link {
+    color: var(--blue);
+}
+
+
+/******************* Домашнее задание **********************/
+/* 
+* Форма
+*/
+.form {
+    margin-bottom: 55px;
+}
+.form-container {
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+.form-label {
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.form-select {
+    color: var(--grey);
+    font-size: 32px;
+ 	padding: 10px 30px;
+ 	width: 100%;
+ 	border: 2px solid var(--grey);
+ 	border-radius: 32px;
+ 	appearance: none;
+	background-image: url(../images/arrow_select.svg);
+	background-repeat: no-repeat;
+	background-position: 96% 48%;
+}
+.file_input {
+	padding: 8px;
+	font-size: 26px;
+	color: var(--dark);
+}
+.form-btn__container {
+    margin-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn-reset {
+    cursor: pointer;
+    color: var(--orange);
+    font-size: 40px;
+    font-weight: 500;
+    border: none;
+    background-color: #fff;
+}
+.btn-send {
+    cursor: pointer;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    background-color: var(--orange);
+    border: none;
+    border-radius: 100px;
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+}
+
+
+/******************* Открытый курс **********************/
+/* 
+* Баннер курса
+*/
+.course-bunner {
+    background-color: var(--blue);
+    padding-top: 55px;
+    padding-bottom: 130px;
+    border-radius: 0px 0px 500px 0px;
+    margin-top: -1px;
+    margin-bottom: 90px;
+}
+.course-bunner__title {
+    color: #fff;
+    font-size: 96px;
+    font-weight: 500;
+}
+/* .course-card__open-course {
+    max-width: 700px;
+} */
+
+
+/******************* Страница урока **********************/
+.lesson-container {
+    margin-bottom: 55px;
+}
+.lesson-video {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 90px;
+}
+.lesson-content {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+.lesson-block {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+.lesson-block__title {
+    font-size: 56px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.lesson-block__content {
+    font-size: 18px;
+    margin: 0;
+}
+.lesson-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+    align-items: center;
+}
+.lesson__homework-btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 500;
+    background-color: var(--orange);
+    border-radius: 100px;
+    text-align: center;
+    display: inline-block;
+    padding: 25px;
+    max-width: 750px;
+    width: 100%;
+}
+.lesson__compiler-link {
+    color: var(--orange);
+    font-size: 48px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+/******************* Статья **********************/
+.article-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 90px;
+    margin-bottom: 55px;
+    text-align: center;
+}
+.article__play-btn {
+    margin-bottom: 55px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 32px;
+    background-color: var(--orange);
+    border-radius: 100px;
+}
+.article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 55px;
+}
+.article-content {
+    font-size: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0;
+}
+.article-content__title {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+
+/******************* Статьи **********************/
+.articles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 55px;
+    margin-bottom: 55px;
+}
+.article-card {
+    max-width: 720px;
+    max-height: 400px;
+    padding: 0;
+}
+.article-card__img {
+    position: absolute;
+    border-radius: 32px;
+    max-width: 720px;
+    height: 100%;
+    max-height: 400px;
+
+}
+.article-card__shadow {
+    position: relative;
+    width: 720px;
+    height: 400px;
+    background: linear-gradient(0deg, #181818 0%, rgba(24, 24, 24, 0) 100%);
+    border-radius: 32px;
+}
+.article-card__shadow__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+}
+.article-card__title {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    max-width: 500px;
+    text-align: center;
+    margin: 0;
+}
+.article-card__btn {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: var(--orange);
+    border-radius: 32px;
+    padding: 12px 32px;
+    display: inline-block;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+
+/******************* Практика **********************/
+.practice {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.practice-header {
+    margin-bottom: 55px;
+}
+.practice-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 90px;
+    margin-bottom: 10px;
+}
+.practice-category {
+    color: var(--grey);
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}
+.practice-content {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 55px;
+}
+.practice-block2__title {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+/* 
+* Задача
+*/
+.practice-form {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    margin-bottom: 55px;
+}
+.practice-textarea {
+    font-size: 18px;
+    padding: 8px 20px;
+    border: 2px solid var(--grey);
+    border-radius: 32px;
+}
+.practice-btn {
+    align-self: center;
+}
+
+
+/******************* Навигация по практике **********************/
+.practice-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: -1px;
+}
+.practice-menu__link {
+    height: 250px;
+    text-decoration: none;
+}
+.practice-menu__item {
+    height: 250px;
+}
+.practice-menu__link .practice-menu__item-first {
+    background-color: #a663cc;
+    background-image: url(../images/Practice_menu/laptop.png);
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+}
+.practice-menu__link .practice-menu__item-second {
+    background-color: #b2967d;
+    background-image: url(../images/Practice_menu/folder.png);
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+}
+.practice-menu__link .practice-menu__item-third {
+    background-color: #b298dc;
+    background-image: url(../images/Practice_menu/paper.png);
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+}
+.practice-menu__item-title {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0;
+}
+
+
+/******************* Медиа-запросы **********************/
+@media (max-width: 1100px) {
+    /*
+    * Главная страница 
+    */
+    .block2__title {
+        font-size: 128px;
+    }
+    .block2__image {
+        display: none;
+    }
+    .block2__cards {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .block2__card {
+        max-width: 700px;
+    }
+    .block2__card__title {
+        font-size: 40px;
+    }
+    .block2__card__description {
+        font-size: 28px;
+    }
+
+    .block3__title {
+        font-size: 128px;
+    }
+    .block3__image {
+        display: none;
+    }
+}
+
+@media (max-width: 980px) {
+    /*
+    * Навигация 
+    */
+    .bunner {
+        margin-top: -1px;
+    }
+    .nav__menu, .nav__user {
+        display: none;
+    }
+    .mobile-menu {
+        display: block;
+    }
+
+    /*
+    * Главная страница 
+    */
+    .block3__form-input, .block3__form-textarea {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 900px) {
+    /* 
+    * Навигация
+    */
+    .page-title {
+        font-size: 96px;
+    }
+}
+@media (max-width: 845px) {
+    /*
+    * Главная страница 
+    */
+    .bunner__title, .block2__title, .block3__title {
+        font-size: 100px;
+    }
+
+    .block3__form-input, .block3__form-textarea {
+        max-width: 600px;
+    }
+
+    /* 
+    * Домашнее задание
+    */
+    .form-btn__container {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    .btn-reset {
+        font-size: 24px;
+    }
+
+    /* 
+    * Страница урока
+    */
+    .lesson__homework-btn {
+        max-width: 650px;
+    }
+    .lesson__compiler-link {
+        font-size: 36px;
+    }
+
+    /* 
+    * Статьи
+    */
+    .article-card {
+        max-width: 600px;
+        max-height: 334px;
+    }
+    .article-card__img {
+        max-width: 600px;
+        max-height: 334px;
+    }
+    .article-card__shadow {
+        width: 600px;
+        max-height: 334px;
+    }
+}
+
+@media (max-width: 700px) {
+    /*
+    * Навигация 
+    */
+    .overlay a {
+        font-size: 36px;
+        padding-left: 30px;
+    }
+
+    .page-title, course-bunner__title {
+        font-size: 80px;
+    }
+
+    .footer__content__description {
+        font-size: 36px;
+    }
+    
+    /*
+    * Главная страница 
+    */
+    .bunner__title, .block2__title, .block3__title {
+        font-size: 90px;
+    }
+
+    .bunner__btn {
+        padding: 25px 140px;
+    }
+
+    .block2__card {
+        max-width: 600px;
+    }
+    .block2__card__title {
+        font-size: 32px;
+    }
+    .block2__card__description {
+        font-size: 24px;
+    }
+
+    .block3__form-input, .block3__form-textarea {
+        max-width: 500px;
+    }
+
+    /* 
+    * Регистрация
+    */
+    .authorization-card {
+		padding: 20px 50px;
+	}
+	.authorization__title {
+		font-size: 56px;
+	}
+
+    /* 
+    * Страница урока
+    */
+    .lesson__homework-btn {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .janna-bot__img {
+        width: 75px;
+    }
+    /*
+    * Главная страница 
+    */
+    .bunner__title, .block2__title, .block3__title {
+        font-size: 80px;
+    }
+
+    .bunner__btn, .block3__btn-send {
+        font-size: 36px;
+        padding: 20px 120px;
+    }
+
+    .block3__form-input, .block3__form-textarea {
+        font-size: 28px;
+        max-width: 430px;
+    }
+
+    /*  
+    * Домашнее задание
+    */
+    .form-label {
+        font-size: 32px;
+    }
+    .form-select {
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+    .file_input {
+		font-size: 22px;
+		width: 350px;
+		display: block
+	}
+
+    /* 
+    * Открытый курс
+    */
+    .course-bunner__title {
+        font-size: 70px;
+    }
+
+    /* 
+    * Страница урока
+    */
+    .lesson-block__title {
+        font-size: 48px;
+    }
+    .lesson__homework-btn {
+        font-size: 32px;
+        max-width: 400px;
+    }
+
+    /* 
+    * Статьи
+    */
+    .article-card {
+        max-width: 450px;
+        max-height: 250px;
+    }
+    .article-card__img {
+        max-width: 450px;
+        max-height: 250px;
+    }
+    .article-card__shadow {
+        max-width: 450px;
+        max-height: 250px;
+    }
+    .article-card__title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 535px) {
+    /*
+    * Навигация 
+    */
+    .overlay a {
+        font-size: 32px;
+        padding-left: 15px;
+    }
+
+    .page-title {
+        font-size: 70px;
+    }
+
+    .footer__content__description {
+        font-size: 28px;
+    }
+
+    /*
+    * Главная страница 
+    */
+    .bunner__title, .block2__title, .block3__title {
+        font-size: 64px;
+    }
+
+    .block3__form-input, .block3__form-textarea {
+        font-size: 24px;
+        max-width: 300px;
+    }
+
+    .bunner__btn, .block3__btn-send {
+        font-size: 28px;
+        padding: 20px 100px;
+    }
+
+    /* 
+    * Курсы
+    */
+    .filter__title {
+        font-size: 24px;
+    }
+
+    .course-card__title {
+        font-size: 24px;
+    }
+    .course-card__photo {
+        display: none;
+    }
+
+    /* 
+    * Регистрация
+    */
+    .authorization__title {
+		font-size: 36px;
+		margin-bottom: 45px;
+	}
+	.authorization__form-label {
+		font-size: 24px;
+	}
+	.authorization__form-input {
+ 		margin-bottom: 30px;
+	}
+
+    /* 
+    * Открытый курс
+    */
+    .course-bunner__title {
+        font-size: 60px;
+    }
+
+    /* 
+    * Страница урока
+    */
+    .lesson__compiler-link {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 465px) {
+    .janna-bot__img {
+        width: 60px;
+    }
+    /* 
+    * Навигация
+    */
+    .page-title, course-bunner__title {
+        font-size: 56px;
+    }
+
+    /* 
+    * Страница урока
+    */
+    .lesson__homework-btn {
+        font-size: 28px;
+        max-width: 300px;
+    }
+
+    /* 
+    * Статьи
+    */
+    .article-card {
+        max-width: 350px;
+        max-height: 205px;
+    }
+    .article-card__img {
+        max-width: 350px;
+        max-height: 205px;
+    }
+    .article-card__shadow {
+        max-width: 350px;
+        max-height: 205px;
+    }
+    .article-card__shadow__content {
+        bottom: 25px;
+    }
+    .article-card__title {
+        font-size: 18px;
+    }
+    .article-card__btn {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 435px) {
+    /*
+    * Навигация 
+    */
+    .overlay a {
+        font-size: 24px;
+        padding-left: 8px;
+    }
+
+    .watermark {
+        font-size: 48px;
+        text-align: start;
+    }
+    .footer__content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /*
+    * Главная страница 
+    */
+    .bunner__title {
+        font-size: 56px;
+        text-align: center;
+    }
+    .bunner__description {
+        font-size: 24px;
+    }
+
+    .bunner, .block3 {
+        border-radius: 0;
+    }
+
+    .block2__title, .block3__title {
+        font-size: 56px;
+    }
+
+    .block3__form-input, .block3__form-textarea {
+        font-size: 18px;
+        max-width: 200px;
+    }
+
+    .bunner__btn, .block3__btn-send {
+        font-size: 18px;
+        padding: 15px 90px;
+    }
+
+    /* 
+    * Курсы
+    */
+    .filter__link {
+        font-size: 14px;
+    }
+
+    /* 
+    * Регистрация
+    */
+    .authorization__title {
+		font-size: 26px;
+		margin-bottom: 40px;
+	}
+	.authorization__form-label {
+		font-size: 18px;
+	}
+	.authorization-btn {
+		padding: 18px 10px;
+	}
+
+    /* 
+    * Открытый курс
+    */
+    .course-bunner__title {
+        font-size: 48px;
+    }
+
+    /* 
+    * Статья
+    */
+    .article-title {
+        font-size: 36px;
+    }
+    .article-content {
+        font-size: 18px;
+    }
+    .article-content__title {
+        font-size: 28px;
+    }
+
+    /* 
+    * Практика
+    */
+    .practice-title {
+        font-size: 36px;
+    }
+    .practice-content, .practice-category, .practice-block2__title {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 380px) {
+    /*
+    * Навигация 
+    */
+    .overlay a {
+        line-height: 55px;
+    }
+
+    .page-title, course-bunner__title {
+        font-size: 48px;
+    }
+    
+    /*
+    * Главная страница 
+    */
+    .bunner__title, .block2__title {
+        font-size: 48px;
+    }
+
+    .bunner__description, .block3__description {
+        font-size: 24px;
+    }
+
+    .block3__title {
+        font-size: 48px;
+        margin-bottom: 55px;
+    }
+
+    /*  
+    * Домашнее задание
+    */
+    .file_input {
+		width: 250px;
+	}
+    .btn-send {
+        font-size: 32px;
+    }
+
+    /* 
+    * Страница урока
+    */
+    .lesson-block__title {
+        font-size: 36px;
+    }
+    .lesson__homework-btn {
+        font-size: 24px;
+        max-width: 250px;
+        padding: 15px;
+    }
+    .lesson__compiler-link {
+        font-size: 18px;
+    }
+
+    /* 
+    * Статья
+    */
+    .article-title {
+        font-size: 32px;
+    }
+    .article-content {
+        font-size: 16px;
+    }
+    .article-content__title {
+        font-size: 24px;
+    }
+
+    /* 
+    * Практика
+    */
+    .practice-title {
+        font-size: 32px;
+    }
+    .practice-content, .practice-category, .practice-block2__title {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 355px) {
+    .janna-bot__img {
+        width: 50px;
+    }
+    /* 
+    * Статьи
+    */
+    .article-card {
+        max-width: 300px;
+        max-height: 168px;
+    }
+    .article-card__img {
+        max-width: 300px;
+        max-height: 168px;
+    }
+    .article-card__shadow {
+        max-width: 300px;
+        max-height: 168px;
+    }
+    .article-card__shadow__content {
+        bottom: 20px;
+    }
+    .article-card__title {
+        font-size: 16px;
+    }
+
+    /* 
+    * Навигация по практике 
+    */
+    .practice-menu__item-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 330px) {
+    /*
+    * Навигация 
+    */
+    .overlay a {
+        font-size: 18px;
+    }
+
+    .page-title, course-bunner__title {
+        font-size: 40px;
+    }
+
+    .watermark {
+        font-size: 40px;
+    }
+    
+    /*
+    * Главная страница 
+    */
+    .block2__card__title {
+        font-size: 24px;
+    }
+    .block2__card__description {
+        font-size: 18px;
+    }
+
+    /* 
+    * Курсы
+    */
+    .course-card__title {
+        font-size: 20px;
+    }
+
+    /* 
+    * Регистрация
+    */
+    .authorization-card {
+		padding: 30px 10px;
+	}
+	.authorization__title {
+		font-size: 22px;
+		margin-bottom: 40px;
+	}
+	.authorization__form-label {
+		font-size: 18px;
+	}
+	.authorization-btn {
+		font-size: 18px;
+		padding: 18px 10px;
+	}
+
+    /* 
+    * Открытый курс
+    */
+    .course-bunner__title {
+        font-size: 36px;
+    }
+    /* 
+    * Страница урока
+    */
+    .lesson-block__title {
+        font-size: 32px;
+    }
+    .lesson-block__content {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 300px) {
+    /*
+    * Главная страница 
+    */
+    .bunner__title, .block2__title, .block3__title {
+        font-size: 40px;
+    }
+
+    .bunner__description, .block3__description {
+        font-size: 18px;
+    }
+
+    .bunner__btn, .block3__btn-send {
+        padding: 15px 80px;
+    }
+
+    .block3__form-input, .block3__form-textarea {
+        max-width: 170px;
+    }
+
+    /* 
+    * Страница урока
+    */
+    .lesson__homework-btn {
+        font-size: 18px;
+        max-width: 200px;
+    }
+
+    /* 
+    * Статьи
+    */
+    .article-card {
+        max-width: 250px;
+        max-height: 139px;
+    }
+    .article-card__img {
+        max-width: 250px;
+        max-height: 139px;
+    }
+    .article-card__shadow {
+        max-width: 250px;
+        max-height: 139px;
+    }
+    .article-card__shadow__content {
+        bottom: 15px;
+    }
+    .article-card__btn {
+        margin-top: 10px;
+    }
+}

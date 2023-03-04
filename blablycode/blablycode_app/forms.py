@@ -1,0 +1,47 @@
+from .models import Homework, Feedback
+from django import forms
+from django.forms import ModelForm, TextInput, Textarea, Select, ClearableFileInput
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.models import User
+
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(label='Username', max_length=10, widget=forms.TextInput(attrs={'class': 'authorization__form-input'}))
+    password = forms.CharField(label='Password', max_length=128, widget=forms.PasswordInput(attrs={'class': 'authorization__form-input'}))
+
+
+class UserRegisterForm(UserCreationForm):
+    username = forms.CharField(label='Username', max_length=10, widget=forms.TextInput(attrs={'class': 'authorization__form-input'}))
+    password1 = forms.CharField(label='Password', max_length=128, widget=forms.PasswordInput(attrs={'class': 'authorization__form-input'}))
+    password2 = forms.CharField(label='Confirm password', max_length=128, widget=forms.PasswordInput(attrs={'class': 'authorization__form-input'}))
+    email = forms.EmailField(label='Email', max_length=320, widget=forms.EmailInput(attrs={'class': 'authorization__form-input'}))
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+
+class FeedbackForm(ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['feedback_name', 'feedback_email', 'feedback_message']
+
+        widgets = {
+            'feedback_name': TextInput(attrs={
+                'class': 'block3__form-input',
+                'id': 'feedback_name',
+                'placeholder': 'Ваше имя'
+            }),
+            'feedback_email': TextInput(attrs={
+                'class': 'block3__form-input',
+                'id': 'feedback_email',
+                'placeholder': 'Ваш E-mail'
+            }),
+            'feedback_message': Textarea(attrs={
+                'class': 'block3__form-textarea',
+                'id': 'feedback_message',
+                'placeholder': 'Ваш вопрос',
+                'cols': '30',
+                'rows': '1',
+            }),
+        }
