@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-    <!-- Авторизация -->
+    <!-- Регистрация -->
     <section>
         <div class="wrapper">
-            <div class="authorization">
+            <div class="register">
                 <div class="authorization-card">
-                    <p class="authorization__title">Авторизация</p>
+                    <p class="authorization__title">Регистрация</p>
                     <div class="authorization__form">
                         <form method="post">
                             {% csrf_token %}
                             <label for="" class="authorization__form-label">Имя пользователя</label>
                             {{ form.username }}
+                            <label for="" class="authorization__form-label">Email</label>
+                            {{ form.email }}
                             <label for="" class="authorization__form-label">Пароль</label>
-                            {{ form.password }}
-                            <button type="submit" class="authorization-btn">Войти</button>
+                            {{ form.password1 }}
+                            <label for="" class="authorization__form-label">Повтор пароля</label>
+                            {{ form.password2 }}
+                            <button type="submit" class="authorization-btn">Регистрация</button>
                         </form>
-                        <p class="authorization__form-description">Еще нет аккаунта? <span><a href="{% url 'register' %}" class="authorization__form-description-link">Присоединяйся к нам!</a></span></p>
                     </div>
                 </div>
             </div>

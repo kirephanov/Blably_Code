@@ -19,6 +19,24 @@ class Index(CreateView):
         return context
 
 
+def register_page(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Регистрация прошла успешно.')
+            return redirect('login')
+        else:
+            messages.error(request, 'Ошибка регистрации.')
+    else:
+        form = UserRegisterForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request=request, template_name='blablycode_app/register.html', context=context)
+
+
 def login_page(request):
     '''Страница авторизации'''
     if request.method == 'POST':
