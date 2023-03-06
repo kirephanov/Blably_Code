@@ -19,6 +19,24 @@ class Index(CreateView):
         return context
 
 
+def login_page(request):
+    '''Страница авторизации'''
+    if request.method == 'POST':
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserLoginForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request=request, template_name='blablycode_app/login.html', context=context)
+
+
 def logout_page(request):
     '''Функция выхода из аккаунта'''
     logout(request)
