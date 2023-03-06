@@ -17,7 +17,13 @@ class Index(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
+
+def logout_page(request):
+    '''Функция выхода из аккаунта'''
+    logout(request)
+    return redirect('home')
+
 
 def courses_page(request):
     '''Страница курсов'''
