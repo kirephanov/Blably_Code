@@ -24,8 +24,9 @@
                         Возраст
                     </p>
                     <div class="filter__content">
+                        <a href="{% url 'courses' %}" class="filter__link">Любой</a>
                         {% for item in age %}
-                        <a href="#" class="filter__link">{{ item.age_title }}</a>
+                        <a href="{% url 'courses_age' item.pk %}" class="filter__link">{{ item.age_title }}</a>
                         {% endfor %}
                     </div>
                 </div>

@@ -40,3 +40,15 @@ def get_courses_category(request, category_id):
     context = {'courses': courses, 'categories': categories, 'age': age, 'category': category}
 
     return render(request=request, template_name='blablycode_app/courses_category.html', context=context)
+
+
+def get_courses_age(request, age_id):
+    '''Страница для сортировки курсов по категориям'''
+    courses = Course.objects.filter(course_age_id=age_id)
+    categories = Category.objects.all()
+    ages = Age.objects.all()
+    age = Age.objects.get(pk=age_id)
+
+    context = {'courses': courses, 'categories': categories, 'age': age, 'ages': ages}
+
+    return render(request=request, template_name='blablycode_app/courses_age.html', context=context)
