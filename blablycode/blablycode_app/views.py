@@ -19,7 +19,7 @@ class Index(CreateView):
         return context
     
 
-def coursesPage(request):
+def courses_page(request):
     '''Страница курсов'''
     courses = Course.objects.all()
     categories = Category.objects.all()
@@ -28,3 +28,15 @@ def coursesPage(request):
     context = {'courses': courses, 'categories': categories, 'age': age}
 
     return render(request=request, template_name='blablycode_app/courses.html', context=context)
+
+
+def get_courses_category(request, category_id):
+    '''Страница для сортировки курсов по категориям'''
+    courses = Course.objects.filter(course_category_id=category_id)
+    categories = Category.objects.all()
+    category = Category.objects.get(pk=category_id)
+    age = Age.objects.all()
+
+    context = {'courses': courses, 'categories': categories, 'age': age, 'category': category}
+
+    return render(request=request, template_name='blablycode_app/courses_category.html', context=context)
