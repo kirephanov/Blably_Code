@@ -36,7 +36,7 @@ class Lesson(models.Model):
     class Meta:
         verbose_name = 'Видеоурок'
         verbose_name_plural = 'Видеоуроки'
-        ordering = ['-lesson_created_at']
+        ordering = ['lesson_created_at']
 
 
 class Category(models.Model):

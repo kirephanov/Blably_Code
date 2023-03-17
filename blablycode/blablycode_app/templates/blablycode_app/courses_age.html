@@ -39,7 +39,7 @@
         <div class="course-catalog-wrapper">
             <div class="course-catalog">
                 {% for item in courses %}    
-                <a href="open_course.html" class="card-link">
+                <a href="{% url 'open_course' item.pk %}" class="card-link">
                     <div class="course-card">
                         <div class="course-card-container">
                             <div class="course-card__photo">

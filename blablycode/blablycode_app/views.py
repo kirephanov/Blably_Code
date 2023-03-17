@@ -94,3 +94,15 @@ def get_courses_age(request, age_id):
     context = {'courses': courses, 'categories': categories, 'age': age, 'ages': ages}
 
     return render(request=request, template_name='blablycode_app/courses_age.html', context=context)
+
+
+def open_course_page(request, course_id):
+    '''Страница с уроками курса'''
+    courses = Course.objects.all()
+    course = Course.objects.get(pk=course_id)
+    #lessons = Lesson.objects.all()
+    lessons = Lesson.objects.filter(lesson_сourse_id=course_id)
+
+    context = {'courses': courses, 'course': course, 'lessons': lessons}
+
+    return render(request=request, template_name='blablycode_app/open_course.html', context=context)
