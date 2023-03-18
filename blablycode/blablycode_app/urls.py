@@ -10,4 +10,5 @@ urlpatterns = [
     path('courses/category/<int:category_id>/', get_courses_category, name='courses_category'),
     path('courses/age/<int:age_id>/', get_courses_age, name='courses_age'),
     path('course/<int:course_id>/', open_course_page, name='open_course'),
+    path('news/<int:pk>/', GetLesson.as_view(), name='lesson'),
 ]

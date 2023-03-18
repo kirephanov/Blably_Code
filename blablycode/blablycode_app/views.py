@@ -106,3 +106,14 @@ def open_course_page(request, course_id):
     context = {'courses': courses, 'course': course, 'lessons': lessons}
 
     return render(request=request, template_name='blablycode_app/open_course.html', context=context)
+
+
+class GetLesson(DetailView):
+    '''Страница урока'''
+    model = Lesson
+    template_name = 'blablycode_app/lesson.html'
+    context_object_name = 'lesson'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

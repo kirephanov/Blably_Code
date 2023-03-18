@@ -16,7 +16,7 @@
         <div class="course-catalog-wrapper">
             <div class="course-catalog">
                 {% for item in lessons %}
-                <a href="#" class="card-link">
+                <a href="{% url 'lesson' item.pk %}" class="card-link">
                     <div class="course-card course-card__open-course">
                         <div class="course-card-container">
                             <div class="course-card__content">
