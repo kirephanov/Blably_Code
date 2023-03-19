@@ -117,3 +117,8 @@ class GetLesson(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+
+class Compiler(TemplateView):
+    '''Страница онлайн-компилятора'''
+    template_name = "blablycode_app/compiler.html"

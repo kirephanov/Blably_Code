@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper">
+        <h1 class="page-title">Компилятор</h1>
+    </div>
+
+    <!-- Компилятор -->
+    <section class="compiler-container">
+        <div class="wrapper">
+            <div class="compile-btn">
+                <button id="run" class="run-btn" onclick='run();'>Запуск</button>
+            </div>
+            <div class="compiler">   
+                <div id="code" class="code"></div>
+            </div>
+
+            <!-- Консоль -->
+            <div class="console">
+                <p class="console__title">Output</p>
+                <div class="console-block">
+                    <pre id="output" class="output">Waiting...</pre>
+                </div>
+            </div>
+            <p>Compiling with <span><a href="http://coliru.stacked-crooked.com" target="_blank" class="compiler-link">Coliru</a></span></p>
+        </div>
+    </section>
+
+    <!-- JS -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/ace/ace.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/run.js' %}"></script>
+{% endblock %}
