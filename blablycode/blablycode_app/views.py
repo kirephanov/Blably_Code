@@ -119,6 +119,26 @@ class GetLesson(DetailView):
         return context
     
 
+def homework_page(request):
+    '''Страница для подкрепления домашнего задания'''
+    error = ''
+    if request.method == 'POST':
+        form = HomeworkForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_homework = form.save(commit=False)
+            new_homework.homework_author = request.user
+            new_homework.save()
+        else:
+            error = 'Форма была неверной.'
+    form = HomeworkForm()
+
+    data = {
+        'form': form,
+        'error': error,    
+    }
+    return render(request=request, template_name='blablycode_app/homework.html', context=data)
+
+
 class Compiler(TemplateView):
     '''Страница онлайн-компилятора'''
     template_name = "blablycode_app/compiler.html"

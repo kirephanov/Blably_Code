@@ -45,3 +45,24 @@ class FeedbackForm(ModelForm):
                 'rows': '1',
             }),
         }
+
+
+class HomeworkForm(ModelForm):
+    class Meta:
+        model = Homework
+        fields = ['homework_course', 'homework_lesson', 'homework_file']
+
+        widgets = {
+            'homework_course': Select(attrs={
+                'class': 'form-select',
+                'id': 'homework_course',
+            }),
+            'homework_lesson': Select(attrs={
+                'class': 'form-select',
+                'id': 'homework_lesson',
+            }),
+            'homework_file': ClearableFileInput(attrs={
+                'class': 'file_input',
+                'id': 'homework_file',
+            }),
+        }        

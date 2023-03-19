@@ -69,10 +69,10 @@ class Homework(models.Model):
     homework_title = models.CharField(max_length=50, default='Домашнее задание', blank=True, verbose_name='Домашнее задание') # Используется в __str__
     homework_course = models.ForeignKey('Course', on_delete=models.PROTECT, null=True, verbose_name='Курс')
     homework_lesson = models.ForeignKey('Lesson', on_delete=models.PROTECT, null=True, verbose_name='Урок')
-    homework_author = models.ForeignKey('auth.User', on_delete=models.CASCADE, verbose_name='Выполнил')
+    homework_author = models.ForeignKey('auth.User', related_name="outputs", on_delete=models.CASCADE, verbose_name='Выполнил')
     homework_file = models.FileField(upload_to='files/%Y/%m/%d/', verbose_name='Файл')
-    homework_verified = models.BooleanField(blank=True, verbose_name='Проверено')
-    homework_comment = models.TextField(max_length=250, blank=True, verbose_name='Комментарий к заданию') 
+    homework_verified = models.BooleanField(null=True, blank=True, verbose_name='Проверено')
+    homework_comment = models.TextField(max_length=250, null=True, blank=True, verbose_name='Комментарий к заданию') 
 
     def __str__(self):
         return self.homework_title
