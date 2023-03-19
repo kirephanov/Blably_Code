@@ -122,3 +122,8 @@ class GetLesson(DetailView):
 class Compiler(TemplateView):
     '''Страница онлайн-компилятора'''
     template_name = "blablycode_app/compiler.html"
+
+
+class PracticeMenu(TemplateView):
+    '''Страница мобильной навигации для модуля практики'''
+    template_name = "blablycode_app/practice_menu.html"
