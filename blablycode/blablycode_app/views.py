@@ -147,3 +147,12 @@ class Compiler(TemplateView):
 class PracticeMenu(TemplateView):
     '''Страница мобильной навигации для модуля практики'''
     template_name = "blablycode_app/practice_menu.html"
+
+
+def exercises_page(request):
+    '''Страница с задачими'''
+    exercise = Exercise.objects.all()
+
+    context = {'exercise': exercise,}
+
+    return render(request=request, template_name='blablycode_app/exercise_list.html', context=context)

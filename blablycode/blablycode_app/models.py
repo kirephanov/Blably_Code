@@ -127,6 +127,7 @@ class Exercise(models.Model):
     class Meta:
         verbose_name = 'Задача для практики'
         verbose_name_plural = 'Задачи для практики'
+        ordering = ['-pk']
 
 
 class InterviewExercise(models.Model):
