@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="wrapper">
+        <div class="practice practice-header">
+            <h1 class="practice-title">{{ exercise.exercise_title }}</h1>
+            <p class="practice-category">{{ exercise.exercise_category }}</p>
+        </div>
+    </div>
+
+    <!-- Задача -->
+    <section>
+        <div class="wrapper">
+            <div class="practice">
+                <p class="practice-content">
+                    {{ exercise.exercise_content|safe|linebreaks }}
+                </p>
+                <p class="practice-block2__title">Ответ</p>
+                <form action="">
+                    <div class="practice-form">
+                        <textarea name="" id="" cols="30" rows="10" class="practice-textarea"></textarea>
+                        <button class="btn-send practice-btn">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

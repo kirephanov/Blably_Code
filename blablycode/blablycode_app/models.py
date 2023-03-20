@@ -143,6 +143,7 @@ class InterviewExercise(models.Model):
     class Meta:
         verbose_name = 'Задача для собеседования'
         verbose_name_plural = 'Задачи для собеседований'
+        ordering = ['-pk']
 
 
 class TechTask(models.Model):
@@ -157,3 +158,4 @@ class TechTask(models.Model):
     class Meta:
         verbose_name = 'Техническое задание'
         verbose_name_plural = 'Технические задания'
+        ordering = ['-pk']
