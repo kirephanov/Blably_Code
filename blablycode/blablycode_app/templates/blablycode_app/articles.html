@@ -16,7 +16,7 @@
                     <div class="article-card__shadow">
                         <div class="article-card__shadow__content">
                             <p class="article-card__title">{{ item.article_title }}</p>
-                            <a href="#" class="article-card__btn">Читать</a>
+                            <a href="{% url 'open_article' item.pk %}" class="article-card__btn">Читать</a>
                         </div>
                     </div>
                 </div>

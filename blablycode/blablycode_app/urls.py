@@ -21,4 +21,5 @@ urlpatterns = [
     path('practice/tech_task/', tech_task_page, name='tech_task'),
     path('practice/tech_task/<int:pk>/', GetTechTask.as_view(), name='open_tech_task'),
     path('articles/', articles_page, name='articles'),
+    path('articles/<int:pk>/', GetArticle.as_view(), name='open_article'),
 ]

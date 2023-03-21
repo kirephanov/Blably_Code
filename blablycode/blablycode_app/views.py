@@ -215,4 +215,15 @@ def articles_page(request):
 
     context = {'articles': articles,}
 
-    return render(request=request, template_name='blablycode_app/articles.html', context=context)    
+    return render(request=request, template_name='blablycode_app/articles.html', context=context)
+
+
+class GetArticle(DetailView):
+    '''Страница с открытой статьей'''
+    model = Article
+    template_name = 'blablycode_app/article.html'
+    context_object_name = 'article'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context    
