@@ -187,3 +187,23 @@ class GetInterview(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+
+def tech_task_page(request):
+    '''Страница с техническими заданиями'''
+    tech_task = TechTask.objects.all()
+
+    context = {'tech_task': tech_task,}
+
+    return render(request=request, template_name='blablycode_app/tech_task_list.html', context=context)
+
+
+class GetTechTask(DetailView):
+    '''Страница с открытым техническим заданием'''
+    model = TechTask
+    template_name = 'blablycode_app/tech_task.html'
+    context_object_name = 'tech_task'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context    

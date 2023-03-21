@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="wrapper">
+        <h1 class="page-title">ТЗ</h1>
+    </div>
+
+    <!-- Список ТЗ -->
+    <section>
+        <div class="course-catalog-wrapper">
+            <div class="course-catalog">
+                {% for item in tech_task %}
+                <a href="{% url 'open_tech_task' item.pk %}" class="card-link">
+                    <div class="course-card">
+                        <div class="course-card-container">
+                            <div class="course-card__content">
+                                <p class="course-card__title">
+                                    {{ item.tech_task_title }}
+                                </p>
+                                <div class="course-card__categories">
+                                    <p class="course-card__category">
+                                        {{ item.tech_task_category }}
+                                    </p>
+                                </div>
+                                <p class="course-card__description">
+                                    {{ item.tech_task_content|safe|truncatewords:15 }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

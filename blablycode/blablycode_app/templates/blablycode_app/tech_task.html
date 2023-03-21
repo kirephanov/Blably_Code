@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="wrapper">
+        <div class="practice practice-header">
+            <h1 class="practice-title">{{ tech_task.tech_task_title }}</h1>
+            <p class="practice-category">{{ tech_task.tech_task_category }}</p>
+        </div>
+    </div>
+
+    <!-- Техническое задание -->
+    <section>
+        <div class="wrapper">
+            <div class="practice">
+                <p class="practice-content">
+                    {{ tech_task.tech_task_content|safe|linebreaks }}
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -18,4 +18,6 @@ urlpatterns = [
     path('practice/exercise/<int:pk>/', GetExercise.as_view(), name='open_exercise'),
     path('practice/interview/', interview_page, name='interview'),
     path('practice/interview/<int:pk>/', GetInterview.as_view(), name='open_interview'),
+    path('practice/tech_task/', tech_task_page, name='tech_task'),
+    path('practice/tech_task/<int:pk>/', GetTechTask.as_view(), name='open_tech_task'),
 ]
