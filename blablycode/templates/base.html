@@ -52,7 +52,7 @@
                                       </div>
                                 </li>
                                 <li class="nav__menu__links__item">
-                                    <a href="#" class="nav__menu__link">Статьи</a>
+                                    <a href="{% url 'articles' %}" class="nav__menu__link">Статьи</a>
                                 </li>
                             </ul>
                         </div>
@@ -77,7 +77,7 @@
                                     <a href="{% url 'home' %}">О&nbspшколе</a>
                                     <a href="{% url 'courses' %}">Курсы</a>
                                     <a href="{% url 'practice_menu' %}">Практика</a>
-                                    <a href="#">Статьи</a>
+                                    <a href="{% url 'articles' %}">Статьи</a>
                                 </div>
                             </div>
                             <span onclick="openNav()" class="open-btn">
