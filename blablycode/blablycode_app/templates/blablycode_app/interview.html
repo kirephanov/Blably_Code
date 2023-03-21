@@ -1,92 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" type="image/x-icon" href="images/neyro_chel.ico">
-    <title>Нейро Чел | Онлайн-платформа для обучения программированию</title>
-</head>
-<body>
-    <div class="janna-bot">
-        <a href="#" class="janna-bot__link"><img src="images/janna-logo.png" class="janna-bot__img"></a>
-    </div>
-    <!-- Навигация -->
-    <header>
-        <div class="header">
-            <div class="wrapper">
-                <nav>
-                    <div class="nav">
-                        <div class="nav__logo">
-                            <a href="index.html" class="nav__logo__link">
-                                <img src="images/logo.svg" alt="Нейро Чел" class="nav__logo__link-img">
-                            </a>
-                        </div>
-                        <div class="nav__menu">
-                            <ul class="nav__menu__links">
-                                <li class="nav__menu__links__item">
-                                    <a href="index.html" class="nav__menu__link">О школе</a>
-                                </li>
-                                <li class="nav__menu__links__item">
-                                    <a href="courses.html" class="nav__menu__link">Курсы</a>
-                                </li>
-                                <li class="nav__menu__links__item">
-                                    <div class="dropdown">
-                                        <button class="dropbtn">Практика
-                                            <img src="images/arrow_down.svg">
-                                        </button>
-                                        <div class="dropdown-content">
-                                          <a href="exercise_list.html">Задачи</a>
-                                          <a href="interview_list.html">Собеседование</a>
-                                          <a href="tech_task_list.html">Технические задания</a>
-                                        </div>
-                                      </div>
-                                </li>
-                                <li class="nav__menu__links__item">
-                                    <a href="articles.html" class="nav__menu__link">Статьи</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="nav__user">
-                            <a href="login.html" class="nav__user__login-btn">Войти</a>
-                            <!-- <a href="#" class="nav__user__profile">Профиль</a> -->
-                        </div>
-
-                        <!-- Мобильное меню -->
-                        <div class="mobile-menu">
-                            <div id="myNav" class="overlay">
-                                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                                <div class="overlay-content">
-                                    <a href="login.html">Войти</a>
-                                    <!-- <a href="#">Профиль</a> -->
-                                    <a href="index.html">О&nbspшколе</a>
-                                    <a href="courses.html">Курсы</a>
-                                    <a href="practice_menu.html">Практика</a>
-                                    <a href="articles.html">Статьи</a>
-                                </div>
-                            </div>
-                            <span onclick="openNav()" class="open-btn">
-                                <img src="images/mobile-btn.svg" alt="Open" class="open-btn__icon">
-                            </span>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-
+{% extends 'base.html' %}
+{% block content %}
     <div class="wrapper">
         <div class="practice practice-header">
-            <h1 class="practice-title">Middle Backend разработчик на Python</h1>
-            <p class="practice-category">Python</p>
+            <h1 class="practice-title">{{ interview.interview_title }}</h1>
+            <p class="practice-category">{{ interview.interview_category }}</p>
         </div>
     </div>
 
@@ -95,48 +12,13 @@
         <div class="wrapper">
             <div class="practice">
                 <p class="practice-content">
-                    Написать код, который будет рассчитывать угол между часовой и минутной стрелкой в заданное время.
+                    {{ interview.interview_content|safe|linebreaks }}
                 </p>
                 <p class="practice-block2__title">Решение</p>
                 <p class="practice-content">
-                    def calc_angel(t: datetime.time) -> float:<br> 
-                    &nbsp;&nbsp;&nbsp;&nbsp;h = t.hour<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;if h > 12:<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h -= 12<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;hour_angle = 0.5 * (h * 60 + t.minute)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;minute_angle = 6 * t.minute<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;angle = abs(hour_angle - minute_angle)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;return min(angle, 360 - angle)
+                    {{ interview.interview_solve|safe|linebreaks }}
                 </p>
             </div>
         </div>
     </section>
-
-    <!-- Футер -->
-    <footer>
-        <div class="footer">
-            <div class="wrapper">
-                <p class="watermark">
-                    Made by<br><span><a href="https://github.com/kirephanov" target="_blank" class="watermark__link">Kirill Ephanov</a></span>
-                </p>
-                <div class="footer__content">
-                    <p class="footer__content__description">
-                        &#169 2022 Нейро Чел.
-                    </p>
-                    <div class="footer__content__socials">
-                        <a href="#" class="footer__content__socials__link"><img src="images/Socials/Telegram.svg" alt="Telegram" class="footer__content__socials__img"></a>
-                        <a href="#" class="footer__content__socials__link"><img src="images/Socials/VK.svg" alt="VK" class="footer__content__socials__img"></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JS -->
-    <script src="js/mobile-menu.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/ace/ace.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/run.js"></script>
-</body>
-</html>
+{% endblock %}

@@ -17,4 +17,5 @@ urlpatterns = [
     path('practice/exercise/', exercises_page, name='exercise'),
     path('practice/exercise/<int:pk>/', GetExercise.as_view(), name='open_exercise'),
     path('practice/interview/', interview_page, name='interview'),
+    path('practice/interview/<int:pk>/', GetInterview.as_view(), name='open_interview'),
 ]
