@@ -16,4 +16,5 @@ urlpatterns = [
     path('practice/', PracticeMenu.as_view(), name='practice_menu'),
     path('practice/exercise/', exercises_page, name='exercise'),
     path('practice/exercise/<int:pk>/', GetExercise.as_view(), name='open_exercise'),
+    path('practice/interview/', interview_page, name='interview'),
 ]

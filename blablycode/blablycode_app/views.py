@@ -167,3 +167,12 @@ class GetExercise(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+
+def interview_page(request):
+    '''Страница с задачими для собеседования'''
+    interview = InterviewExercise.objects.all()
+
+    context = {'interview': interview,}
+
+    return render(request=request, template_name='blablycode_app/interview_list.html', context=context)    
